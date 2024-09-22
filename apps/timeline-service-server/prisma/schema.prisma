@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Timeline {
+  createdAt DateTime @default(now())
+  end       Int?
+  id        String   @id @default(cuid())
+  name      String?
+  start     Int?
+  updatedAt DateTime @updatedAt
+}
